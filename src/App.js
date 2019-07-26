@@ -1,26 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import BPMCounterButton from './components/bpmCounterButton';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const useStyles = makeStyles(() =>
+    createStyles({
+        headerText: {
+            color: '#313131',
+            fontWeight: 'bold',
+        },
+        appContainer: {
+            margin: '100px auto',
+            width: '500px',
+        },
+    })
+);
+
+const App = () => {
+    const classes = useStyles();
+    return (
+        <Container className={classes.appContainer}>
+            <center>
+                <Typography variant="h3" className={classes.headerText}>
+                    BPM Counter
+                </Typography>
+                <br />
+                <BPMCounterButton />
+            </center>
+        </Container>
+    );
+};
 
 export default App;
